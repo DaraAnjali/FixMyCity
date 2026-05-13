@@ -193,64 +193,56 @@ const IssueCard = ({
 
       </div>
 
-      {/* ADMIN CONTROLS */}
-      {
-        user?.role === "admin" && (
+      {/* ACTION BUTTONS */}
+      <div className="flex gap-3 mt-6 flex-wrap">
 
-          <div className="flex gap-3 mt-6 flex-wrap">
+        {/* ADMIN BUTTONS */}
+        {
+          user?.role === "admin" && (
+
+            <>
+              <button
+                onClick={() =>
+                  handleStatusUpdate(
+                    "In Progress"
+                  )
+                }
+
+                className="bg-blue-500 px-4 py-2 rounded-lg"
+              >
+                In Progress
+              </button>
+
+              <button
+                onClick={() =>
+                  handleStatusUpdate(
+                    "Resolved"
+                  )
+                }
+
+                className="bg-green-500 px-4 py-2 rounded-lg"
+              >
+                Resolve
+              </button>
+            </>
+          )
+        }
+
+        {/* DELETE BUTTON ONLY FOR CREATOR */}
+        {
+          user?._id === issue.reportedBy && (
 
             <button
-              onClick={() =>
-                handleStatusUpdate(
-                  "In Progress"
-                )
-              }
+              onClick={handleDelete}
 
-              className="bg-blue-500 px-4 py-2 rounded-lg"
+              className="bg-red-500 px-4 py-2 rounded-lg"
             >
-              In Progress
+              Delete
             </button>
+          )
+        }
 
-            <button
-              onClick={() =>
-                handleStatusUpdate(
-                  "Resolved"
-                )
-              }
-
-              className="bg-green-500 px-4 py-2 rounded-lg"
-            >
-              Resolve
-            </button>
-
-            {
-              (
-                user?._id === issue.reportedBy
-
-                ||
-
-                (
-                  user?.role === "admin"
-
-                  &&
-
-                  issue.status !== "Resolved"
-                )
-              ) && (
-
-                <button
-                  onClick={handleDelete}
-
-                  className="bg-red-500 px-4 py-2 rounded-lg"
-                >
-                  Delete
-                </button>
-              )
-            }
-
-          </div>
-        )
-      }
+      </div>
 
     </div>
   );
