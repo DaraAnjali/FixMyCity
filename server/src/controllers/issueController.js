@@ -75,6 +75,8 @@ export const getIssues = async (req, res) => {
   }
 };
 
+
+
 // GET SINGLE ISSUE
 export const getSingleIssue = async (req, res) => {
   try {
@@ -145,7 +147,7 @@ export const deleteIssue = async (req, res) => {
 
       !==
 
-      req.user._id.toString()
+      req.user.id
 
     ) {
 
