@@ -141,15 +141,19 @@ export const deleteIssue = async (req, res) => {
     }
 
     // ONLY CREATOR CAN DELETE
-    if (
+    console.log(issue.reportedBy);
 
-      issue.reportedBy.toString()
+console.log(req.user._id);
 
-      !==
+if (
 
-      req.user.id
+  issue.reportedBy.toString()
 
-    ) {
+  !==
+
+  req.user._id.toString()
+
+) {
 
       return res.status(403).json({
         message:
