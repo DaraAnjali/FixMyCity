@@ -223,13 +223,30 @@ const IssueCard = ({
               Resolve
             </button>
 
-            <button
-              onClick={handleDelete}
+            {
+              (
+                user?._id === issue.reportedBy
 
-              className="bg-red-500 px-4 py-2 rounded-lg"
-            >
-              Delete
-            </button>
+                ||
+
+                (
+                  user?.role === "admin"
+
+                  &&
+
+                  issue.status !== "Resolved"
+                )
+              ) && (
+
+                <button
+                  onClick={handleDelete}
+
+                  className="bg-red-500 px-4 py-2 rounded-lg"
+                >
+                  Delete
+                </button>
+              )
+            }
 
           </div>
         )
