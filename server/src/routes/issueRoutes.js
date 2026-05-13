@@ -31,7 +31,7 @@ router.route("/:id")
 
   .put(protect, admin, updateIssueStatus)
 
-  .delete(protect, admin, deleteIssue);
+  .delete(protect, deleteIssue);
   router.put(
   "/:id/support",
   protect,
