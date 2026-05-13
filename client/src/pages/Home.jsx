@@ -1,6 +1,11 @@
 import Navbar from "../components/Navbar";
 
+import { useNavigate } from "react-router-dom";
+
 const Home = () => {
+
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-[#0F172A] text-white">
 
@@ -40,13 +45,21 @@ const Home = () => {
         {/* BUTTONS */}
         <div className="flex gap-6 mt-10">
 
-          <button className="bg-[#0057D9] hover:bg-blue-700 px-8 py-4 rounded-xl text-lg font-semibold transition">
+          <button
+            onClick={() => navigate("/report")}
+
+            className="bg-[#0057D9] hover:bg-blue-700 px-8 py-4 rounded-xl text-lg font-semibold transition"
+          >
 
             Report Issue
 
           </button>
 
-          <button className="bg-[#FF8A00] hover:bg-orange-600 px-8 py-4 rounded-xl text-lg font-semibold transition">
+          <button
+            onClick={() => navigate("/dashboard")}
+
+            className="bg-[#FF8A00] hover:bg-orange-600 px-8 py-4 rounded-xl text-lg font-semibold transition"
+          >
 
             Explore Dashboard
 
