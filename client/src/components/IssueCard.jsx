@@ -230,7 +230,7 @@ const IssueCard = ({
 
         {/* DELETE BUTTON ONLY FOR CREATOR */}
         {
-          user?._id === issue.reportedBy && (
+          user?._id === issue.reportedBy?._id && (
 
             <button
               onClick={handleDelete}
