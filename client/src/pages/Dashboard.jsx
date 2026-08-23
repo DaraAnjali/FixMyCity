@@ -94,18 +94,49 @@ const Dashboard = () => {
   });
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-white">
+
+    <div
+      className="
+        min-h-screen
+        bg-gray-50
+        dark:bg-[#0F172A]
+        text-gray-900
+        dark:text-white
+        transition-colors
+        duration-300
+      "
+    >
 
       <Navbar />
 
       <div className="p-4 md:p-10">
 
-        <h1 className="text-3xl md:text-5xl font-bold mb-10">
+        {/* PAGE TITLE */}
+        <h1
+          className="
+            text-3xl
+            md:text-5xl
+            font-bold
+            mb-10
+            text-gray-900
+            dark:text-white
+          "
+        >
           Civic Issues Dashboard
         </h1>
 
+
         {/* STATS */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div
+          className="
+            grid
+            grid-cols-1
+            sm:grid-cols-2
+            lg:grid-cols-4
+            gap-6
+            mb-12
+          "
+        >
 
           <StatsCard
             title="Total Issues"
@@ -133,10 +164,29 @@ const Dashboard = () => {
 
         </div>
 
-        {/* SEARCH + FILTERS */}
-        <div className="bg-[#1E293B] p-6 rounded-2xl mb-10">
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5">
+        {/* SEARCH + FILTERS */}
+        <div
+          className="
+            bg-white
+            dark:bg-[#1E293B]
+            p-6
+            rounded-2xl
+            mb-10
+            shadow-lg
+            transition-colors
+            duration-300
+          "
+        >
+
+          <div
+            className="
+              grid
+              grid-cols-1
+              lg:grid-cols-3
+              gap-5
+            "
+          >
 
             {/* SEARCH */}
             <input
@@ -150,8 +200,22 @@ const Dashboard = () => {
                 setSearchTerm(e.target.value)
               }
 
-              className="p-4 rounded-xl bg-gray-800 outline-none"
+              className="
+                p-4
+                rounded-xl
+                bg-gray-100
+                dark:bg-gray-800
+                text-gray-900
+                dark:text-white
+                placeholder-gray-500
+                outline-none
+                border
+                border-gray-200
+                dark:border-transparent
+                transition-colors
+              "
             />
+
 
             {/* STATUS FILTER */}
             <select
@@ -161,7 +225,19 @@ const Dashboard = () => {
                 setStatusFilter(e.target.value)
               }
 
-              className="p-4 rounded-xl bg-gray-800 outline-none"
+              className="
+                p-4
+                rounded-xl
+                bg-gray-100
+                dark:bg-gray-800
+                text-gray-900
+                dark:text-white
+                outline-none
+                border
+                border-gray-200
+                dark:border-transparent
+                transition-colors
+              "
             >
 
               <option value="">
@@ -182,6 +258,7 @@ const Dashboard = () => {
 
             </select>
 
+
             {/* CATEGORY FILTER */}
             <select
               value={categoryFilter}
@@ -190,7 +267,19 @@ const Dashboard = () => {
                 setCategoryFilter(e.target.value)
               }
 
-              className="p-4 rounded-xl bg-gray-800 outline-none"
+              className="
+                p-4
+                rounded-xl
+                bg-gray-100
+                dark:bg-gray-800
+                text-gray-900
+                dark:text-white
+                outline-none
+                border
+                border-gray-200
+                dark:border-transparent
+                transition-colors
+              "
             >
 
               <option value="">
@@ -219,26 +308,38 @@ const Dashboard = () => {
 
         </div>
 
+
         {/* CHART */}
-<div className="mb-12">
+        <div className="mb-12">
 
-  <StatusChart
-    pending={pendingIssues}
-    inProgress={inProgressIssues}
-    resolved={resolvedIssues}
-  />
+          <StatusChart
+            pending={pendingIssues}
+            inProgress={inProgressIssues}
+            resolved={resolvedIssues}
+          />
 
-</div>
+        </div>
+
 
         {/* MAP */}
         <div className="mb-12 rounded-2xl overflow-hidden">
 
-          <IssueMap issues={filteredIssues} />
+          <IssueMap
+            issues={filteredIssues}
+          />
 
         </div>
 
+
         {/* ISSUE CARDS */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <div
+          className="
+            grid
+            grid-cols-1
+            lg:grid-cols-2
+            gap-8
+          "
+        >
 
           {
             filteredIssues.map((issue) => (
@@ -250,6 +351,7 @@ const Dashboard = () => {
 
                 refreshIssues={fetchIssues}
               />
+
             ))
           }
 

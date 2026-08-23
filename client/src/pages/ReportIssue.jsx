@@ -13,23 +13,26 @@ const ReportIssue = () => {
   const { user } = useAuth();
 
   const [formData, setFormData] = useState({
-  title: "",
-  description: "",
-  category: "",
-  location: "",
-  latitude: "",
-  longitude: "",
-  image: null,
-});
+    title: "",
+    description: "",
+    category: "",
+    location: "",
+    latitude: "",
+    longitude: "",
+    image: null,
+  });
 
   const handleChange = (e) => {
+
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
     });
+
   };
 
   const handleSubmit = async (e) => {
+
     e.preventDefault();
 
     try {
@@ -40,14 +43,17 @@ const ReportIssue = () => {
       );
 
       toast.success(
-  "Issue Reported Successfully"
-);
+        "Issue Reported Successfully"
+      );
 
       setFormData({
         title: "",
         description: "",
+        category: "",
         location: "",
-        image: "",
+        latitude: "",
+        longitude: "",
+        image: null,
       });
 
     } catch (error) {
@@ -55,13 +61,20 @@ const ReportIssue = () => {
       console.log(error);
 
       toast.error(
-  "Failed To Report Issue"
-);
+        "Failed To Report Issue"
+      );
     }
   };
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-white">
+    <div
+      className="
+        min-h-screen
+        bg-gray-50 dark:bg-[#0F172A]
+        text-gray-900 dark:text-white
+        transition-colors duration-300
+      "
+    >
 
       <Navbar />
 
@@ -69,7 +82,15 @@ const ReportIssue = () => {
 
         <form
           onSubmit={handleSubmit}
-          className="bg-[#1E293B] p-6 md:p-10 rounded-2xl w-full max-w-[700px] mx-4"
+          className="
+            bg-white dark:bg-[#1E293B]
+            p-6 md:p-10
+            rounded-2xl
+            w-full
+            max-w-[700px]
+            mx-4
+            shadow-lg
+          "
         >
 
           <h1 className="text-4xl font-bold mb-8">
@@ -83,7 +104,16 @@ const ReportIssue = () => {
             placeholder="Issue Title"
             value={formData.title}
             onChange={handleChange}
-            className="w-full p-4 rounded-lg mb-5 bg-gray-800 outline-none"
+            className="
+              w-full
+              p-4
+              rounded-lg
+              mb-5
+              bg-gray-100 dark:bg-gray-800
+              text-gray-900 dark:text-white
+              placeholder-gray-500
+              outline-none
+            "
           />
 
           {/* DESCRIPTION */}
@@ -93,10 +123,17 @@ const ReportIssue = () => {
             value={formData.description}
             onChange={handleChange}
             rows="5"
-            className="w-full p-4 rounded-lg mb-5 bg-gray-800 outline-none"
+            className="
+              w-full
+              p-4
+              rounded-lg
+              mb-5
+              bg-gray-100 dark:bg-gray-800
+              text-gray-900 dark:text-white
+              placeholder-gray-500
+              outline-none
+            "
           />
-
-          
 
           {/* LOCATION */}
           <input
@@ -105,48 +142,93 @@ const ReportIssue = () => {
             placeholder="Enter Location"
             value={formData.location}
             onChange={handleChange}
-            className="w-full p-4 rounded-lg mb-5 bg-gray-800 outline-none"
+            className="
+              w-full
+              p-4
+              rounded-lg
+              mb-5
+              bg-gray-100 dark:bg-gray-800
+              text-gray-900 dark:text-white
+              placeholder-gray-500
+              outline-none
+            "
           />
 
+          {/* LATITUDE */}
           <input
-  type="number"
-  name="latitude"
-  placeholder="Latitude"
-  value={formData.latitude}
-  onChange={handleChange}
-  className="w-full p-4 rounded-lg mb-5 bg-gray-800 outline-none"
-/>
+            type="number"
+            name="latitude"
+            placeholder="Latitude"
+            value={formData.latitude}
+            onChange={handleChange}
+            className="
+              w-full
+              p-4
+              rounded-lg
+              mb-5
+              bg-gray-100 dark:bg-gray-800
+              text-gray-900 dark:text-white
+              placeholder-gray-500
+              outline-none
+            "
+          />
 
-<input
-  type="number"
-  name="longitude"
-  placeholder="Longitude"
-  value={formData.longitude}
-  onChange={handleChange}
-  className="w-full p-4 rounded-lg mb-5 bg-gray-800 outline-none"
-/>
+          {/* LONGITUDE */}
+          <input
+            type="number"
+            name="longitude"
+            placeholder="Longitude"
+            value={formData.longitude}
+            onChange={handleChange}
+            className="
+              w-full
+              p-4
+              rounded-lg
+              mb-5
+              bg-gray-100 dark:bg-gray-800
+              text-gray-900 dark:text-white
+              placeholder-gray-500
+              outline-none
+            "
+          />
 
           {/* IMAGE */}
           <input
-  type="file"
-  name="image"
-
-  onChange={(e) =>
-    setFormData({
-      ...formData,
-      image: e.target.files[0],
-    })
-  }
-
-  className="w-full p-4 rounded-lg mb-8 bg-gray-800 outline-none"
-/>
+            type="file"
+            name="image"
+            onChange={(e) =>
+              setFormData({
+                ...formData,
+                image: e.target.files[0],
+              })
+            }
+            className="
+              w-full
+              p-4
+              rounded-lg
+              mb-8
+              bg-gray-100 dark:bg-gray-800
+              text-gray-900 dark:text-white
+              outline-none
+            "
+          />
 
           {/* BUTTON */}
           <button
-  className="w-full bg-[#0057D9] hover:bg-blue-700 py-4 rounded-xl font-semibold text-lg transition"
->
-  Submit Issue
-</button>
+            className="
+              w-full
+              bg-[#0057D9]
+              hover:bg-blue-700
+              text-white
+              py-4
+              rounded-xl
+              font-semibold
+              text-lg
+              transition
+            "
+          >
+            Submit Issue
+          </button>
 
         </form>
 

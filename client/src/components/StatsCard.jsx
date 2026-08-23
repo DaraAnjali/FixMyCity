@@ -7,8 +7,9 @@ const StatsCard = ({
   return (
     <div
       className={`
-        p-6 rounded-2xl text-white
-
+        p-6
+        rounded-2xl
+        text-white
         ${color}
       `}
     >

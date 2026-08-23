@@ -8,39 +8,55 @@ import ReportIssue from "./pages/ReportIssue";
 
 import ProtectedRoute from "./components/ProtectedRoute";
 
+import { ThemeProvider } from "./context/ThemeContext";
+
 function App() {
+
   return (
-    <BrowserRouter>
+    <ThemeProvider>
 
-      <Routes>
+      <BrowserRouter>
 
-        <Route path="/" element={<Home />} />
+        <Routes>
 
-        <Route path="/login" element={<Login />} />
+          <Route
+            path="/"
+            element={<Home />}
+          />
 
-        <Route path="/register" element={<Register />} />
+          <Route
+            path="/login"
+            element={<Login />}
+          />
 
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/register"
+            element={<Register />}
+          />
 
-        <Route
-          path="/report"
-          element={
-            <ProtectedRoute>
-              <ReportIssue />
-            </ProtectedRoute>
-          }
-        />
+          <Route
+            path="/dashboard"
+            element={
+              <ProtectedRoute>
+                <Dashboard />
+              </ProtectedRoute>
+            }
+          />
 
-      </Routes>
+          <Route
+            path="/report"
+            element={
+              <ProtectedRoute>
+                <ReportIssue />
+              </ProtectedRoute>
+            }
+          />
 
-    </BrowserRouter>
+        </Routes>
+
+      </BrowserRouter>
+
+    </ThemeProvider>
   );
 }
 
