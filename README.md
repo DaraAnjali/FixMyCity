@@ -6,7 +6,7 @@ The platform allows users to report civic problems such as potholes, garbage ove
 
 ---
 
-# Features
+# Features of FixMyCity
 
 ## Citizen Features
 - Report civic issues with description, image, and location
